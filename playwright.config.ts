@@ -20,10 +20,6 @@ export default defineConfig({
     ['html'],
     ['allure-playwright'],
   ],
-  timeout: 60000,
-  expect: {
-    timeout: 15000,
-  },
   use: {
     baseURL: process.env.BASE_URL,
     trace: 'on-first-retry',
