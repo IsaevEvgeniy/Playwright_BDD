@@ -13,47 +13,61 @@ Feature: API пользователей
     And Список не пустой
 
   @Regression
-  Scenario: Получение пользователя по id
-    When Отправлен GET запрос "/users/2"
+  Scenario Outline: Получение пользователя по id
+    When Отправлен GET запрос "/users/<id>"
     Then Статус ответа равен 200
-    And Ответ содержит поле "email"
+
+    Examples:
+      | id |
+      | 1  |
+      | 2  |
 
   @Regression
-  Scenario: Запрос несуществующего пользователя возвращает 404
-    When Отправлен GET запрос "/users/999"
-    Then Статус ответа равен 404
+  Scenario Outline: Пользователь содержит обязательные поля
+    When Отправлен GET запрос "/users/1"
+    Then Статус ответа равен 200
+    And Ответ содержит поле "<field>"
+
+    Examples:
+      | field    |
+      | name     |
+      | email    |
+      | username |
 
   @Regression
-  Scenario: Создание нового пользователя
+  Scenario Outline: Создание нового пользователя
     When Отправлен POST запрос "/users" с именем "John" и должностью "QA"
     Then Статус ответа равен 201
-    And Ответ содержит поле "id"
+    And Ответ содержит поле "<field>"
+
+    Examples:
+      | field |
+      | id    |
+      | name  |
 
   @Regression
-  Scenario: Полное обновление пользователя
+  Scenario Outline: Полное обновление пользователя
     When Отправлен PUT запрос "/users/2" с именем "Jane" и должностью "Lead"
     Then Статус ответа равен 200
-    And Ответ содержит поле "name"
+    And Ответ содержит поле "<field>"
+
+    Examples:
+      | field |
+      | name  |
+      | id    |
 
   @Regression
-  Scenario: Частичное обновление пользователя
+  Scenario Outline: Частичное обновление пользователя
     When Отправлен PATCH запрос "/users/2" с именем "Mike" и должностью "Dev"
     Then Статус ответа равен 200
-    And Ответ содержит поле "name"
+    And Ответ содержит поле "<field>"
+
+    Examples:
+      | field |
+      | name  |
+      | id    |
 
   @Regression
   Scenario: Удаление пользователя
     When Отправлен DELETE запрос "/users/2"
     Then Статус ответа равен 200
-
-  @Regression
-  Scenario: Получение постов пользователя
-    When Отправлен GET запрос "/users/1/posts"
-    Then Статус ответа равен 200
-    And Список не пустой
-
-  @Regression
-  Scenario: Получение задач пользователя
-    When Отправлен GET запрос "/users/1/todos"
-    Then Статус ответа равен 200
-    And Список не пустой

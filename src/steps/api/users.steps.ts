@@ -9,21 +9,21 @@ When(
   'Отправлен POST запрос {string} с именем {string} и должностью {string}',
   async ({ api }, url: string, name: string, job: string) => {
     await api.post(url, { name, job });
-  },
+  }
 );
 
 When(
   'Отправлен PUT запрос {string} с именем {string} и должностью {string}',
   async ({ api }, url: string, name: string, job: string) => {
     await api.put(url, { name, job });
-  },
+  }
 );
 
 When(
   'Отправлен PATCH запрос {string} с именем {string} и должностью {string}',
   async ({ api }, url: string, name: string, job: string) => {
     await api.patch(url, { name, job });
-  },
+  }
 );
 
 When('Отправлен DELETE запрос {string}', async ({ api }, url: string) => {
@@ -37,6 +37,11 @@ Then('Статус ответа равен {int}', async ({ api }, status: numbe
 Then('Список не пустой', async ({ api }) => {
   const body = await api.response.json();
   expect((body as unknown[]).length).toBeGreaterThan(0);
+});
+
+Then('Список пустой', async ({ api }) => {
+  const body = await api.response.json();
+  expect((body as unknown[]).length).toBe(0);
 });
 
 Then('Ответ содержит поле {string}', async ({ api }, field: string) => {
