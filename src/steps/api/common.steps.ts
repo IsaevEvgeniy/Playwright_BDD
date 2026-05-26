@@ -27,3 +27,11 @@ Then('Ответ содержит поле {string}', async ({ api }, field: str
   const body = await api.json();
   expect(body).toHaveProperty(field);
 });
+
+Then(
+  'Ответ содержит поле {string} со значением {string}',
+  async ({ api }, field: string, value: string) => {
+    const body = await api.json();
+    expect(body).toHaveProperty(field, value);
+  },
+);
