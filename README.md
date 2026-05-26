@@ -38,9 +38,10 @@ Playwright_BDD/
 │   │   │   └── purchase.continue.feature
 │   │   │
 │   │   └── api/
-│   │       ├── users.positive.feature
+│   │       ├── posts.negative.feature
+│   │       ├── posts.positive.feature
 │   │       ├── users.negative.feature
-│   │       └──
+│   │       └── users.positive.feature
 │   │
 │   ├── fixtures/
 │   │   └── fixtures.ts
@@ -65,6 +66,8 @@ Playwright_BDD/
 │       │   └── checkout.steps.ts
 │       │
 │       └── api/
+│           ├── common.steps.ts
+│           ├── posts.steps.ts
 │           └── users.steps.ts
 │
 ├── .env
