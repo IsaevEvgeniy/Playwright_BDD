@@ -38,7 +38,9 @@ Playwright_BDD/
 │   │   │   └── purchase.continue.feature
 │   │   │
 │   │   └── api/
-│   │       └── users.feature
+│   │       ├── users.positive.feature
+│   │       ├── users.negative.feature
+│   │       └──
 │   │
 │   ├── fixtures/
 │   │   └── fixtures.ts
