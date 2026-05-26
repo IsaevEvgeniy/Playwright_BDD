@@ -38,6 +38,8 @@ Playwright_BDD/
 │   │   │   └── purchase.continue.feature
 │   │   │
 │   │   └── api/
+│   │       ├── comments.negative.feature
+│   │       ├── comments.positive.feature
 │   │       ├── posts.negative.feature
 │   │       ├── posts.positive.feature
 │   │       ├── users.negative.feature
@@ -66,6 +68,7 @@ Playwright_BDD/
 │       │   └── checkout.steps.ts
 │       │
 │       └── api/
+│           ├── comments.step.ts
 │           ├── common.steps.ts
 │           ├── posts.steps.ts
 │           └── users.steps.ts
@@ -125,7 +128,7 @@ npm run debug           # запуск в режиме отладки
 npm run ci              # запуск в CI режиме
 ```
 
-## 5. Просмотр и генерация отчетов
+### 5. Просмотр и генерация отчетов
 
 ```bash
 # Allure
