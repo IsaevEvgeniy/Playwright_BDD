@@ -38,6 +38,8 @@ Playwright_BDD/
 │   │   │   └── purchase.continue.feature
 │   │   │
 │   │   └── api/
+│   │       ├── albums.negative.feature
+│   │       ├── albums.positive.feature
 │   │       ├── comments.negative.feature
 │   │       ├── comments.positive.feature
 │   │       ├── posts.negative.feature
